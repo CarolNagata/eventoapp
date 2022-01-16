@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org" 
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+	<title>ListaEventos</title>
+	<h3><a href="cadastro">Novo Evento</a></h3>
+
+	<div t:each="cadastro:${eventos}">
+		<div class="row">
+			<p><span th:text="${cadastro.nome}"></span></p>
+			<p><span th:text="${cadastro.email}"></span></p>
+			<p><span th:text="${cadastro.telefone}"></span></p>
+			<p><span th:text="${cadastro.local}"></span></p>
+			<p><span th:text="${cadastro.data}"></span></p>
+			<p><span th:text="${cadastro.horario}"></span></p>
+		</div>
+	</div>
