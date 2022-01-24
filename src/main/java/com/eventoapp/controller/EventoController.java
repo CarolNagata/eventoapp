@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.eventoapp.model.Evento;
 import com.eventoapp.repository.EventoRepository;
@@ -15,24 +14,16 @@ public class EventoController {
 	@Autowired
 	private EventoRepository er;
 	
-	@RequestMapping(value= "/cadastro", method= RequestMethod.GET)
+	@RequestMapping(value= "/cadastrarEvento", method= RequestMethod.GET)
 	public String form() {
 		return "evento/formEvento";
 	}
 	
-	@RequestMapping(value= "/cadastro", method= RequestMethod.POST)
+	@RequestMapping(value= "/cadastrarEvento", method= RequestMethod.POST)
 	public String form(Evento evento) {
 		
 		er.save(evento);
 		
 		return "redirect:/cadastro";
-	}
-	
-	@RequestMapping("/listaEventos")
-	public ModelAndView listaEventos() {
-		ModelAndView mv = new ModelAndView ("index");
-		Iterable<Evento> cadastro = er.findAll();
-		mv.addObject("eventos", cadastro);
-		return mv;
 	}
 }

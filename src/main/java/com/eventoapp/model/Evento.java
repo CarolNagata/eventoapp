@@ -2,8 +2,6 @@ package com.eventoapp.model;
 
 import java.io.Serializable;
 import java.util.Objects;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,7 +13,7 @@ public class Evento implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
-	private long codigo;
+	private Long codigo;
 	
 	private String nome;
 	private String local;
@@ -28,7 +26,7 @@ public class Evento implements Serializable {
 	public Evento () {
 	}
 	
-	public Evento(long codigo, String nome, String local, String data, String horario, String email, String telefone) {
+	public Evento(Long codigo, String nome, String local, String data, String horario, String email, String telefone) {
 		this.codigo = codigo;
 		this.nome = nome;
 		this.local = local;
@@ -74,11 +72,11 @@ public class Evento implements Serializable {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-		public long getCodigo() {
+		public Long getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(long codigo) {
+	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
 
