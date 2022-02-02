@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+	<title>EventosApp</title>
+</head>
+
+<body>
+	<h1>Evento</h1>
+	<h3><a href="/evento">Lista de Evento</a></h3>
+
+	<div th:each="evento : ${evento}">
+		<p>Nome: <span th:text="${evento.nome}"></span></p>
+		<p>Local: <span th:text="${evento.local}"></span></p>
+		<p>Data: <span th:text="${evento.data}"></span></p>
+		<p>Horário: <span th:text="${evento.horario}"></span></p>
+	</div>
+
+	<form method="POST">
+		Nome convidado: <input type="text" value="" name="nomeConvidado">
+		CPF: <input type="text" value="" name="cpf">
+		<button type="submit">Adicionar</button>
+	</form>
+<br/>	
+<br/>	
+<br/>
+	<div th:each = "mensagemValidacao : ${mensagem}">
+		<span th:text = "${mensagem}">
+	</div >
+<br/>
+	<h5>Lista de Convidados: </h5>
+	<div th:each="convidado: ${convidados}">
+		<p>Nome: <span th:text="${convidado.nomeConvidado}"></span></p>
+		<p>CPF: <span th:text="${convidado.cpf}"></span></p>
+		<p><a th:href="${(#mvc.url('EC#deletarConvidado').arg(0,convidado.cpf)).build()}"><button type= "submit">Deletar</button></a></p>
+	</div>
+
+</body>
